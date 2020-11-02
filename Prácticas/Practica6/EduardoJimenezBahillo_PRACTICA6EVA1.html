@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Pedimos al usuario que introduzca un número
+        let x = prompt("Escriba un número");
+
+        //Si es NaN, le decimos al usuario que no es un número
+        if (isNaN(x)) {
+            alert(`El valor introducido '${x}' no es un número`);
+        //Si no es NaN, decimos al usuario que sí es un número    
+        } else {
+            alert(`El valor introducido '${x}' es un número`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 8 EVA 1</title>
+    <style>
+        /* * {height:100%; margin:0; } */
+        div {width: 50px; height: 50px; position: fixed; }
+    </style>
+</head>
+<body>
+    <script>
+        for (let i = 0; i < 2000; i++) {
+            r = parseInt(Math.random()*256);
+            g = parseInt(Math.random()*256);
+            b = parseInt(Math.random()*256);
+            arr = parseInt(Math.random()*100);
+            izq = parseInt(Math.random()*100);
+            estilo = `style="background-color: rgb(${r},${g},${b}); top: ${arr}%; left: ${izq}%"`;
+            console.log(estilo);
+            document.write(`<div ${estilo}></div>`);
+        }
+    </script>
+</body>
+</html>
