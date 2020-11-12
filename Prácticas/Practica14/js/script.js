@@ -6,7 +6,7 @@ let usuario=password="";
 
 do {
     usuario = prompt("Escribe su nombre de usuario (solo puede estar formada por letras minúsculas y números)");
-    let tieneMinus=tieneMayus=tieneNum=tieneSimb=false;
+    tieneMinus=tieneMayus=tieneNum=tieneSimb=false;
     for ( let i=0; i<usuario.length; i++ ) {
         if ( minus.includes(usuario.charAt(i)) ) {
             tieneMinus = true;
@@ -18,11 +18,11 @@ do {
             tieneSimb = true;
         }
     }    
-} while ( tieneMayus || tieneSimb );
+} while ( !tieneMinus || !tieneNum || tieneMayus || tieneSimb );
 
 do {
     password = prompt("Escribe su contraseña (debe tener una letra minúscula, una mayúscula, un número y un símbolo)");
-    let tieneMinus=tieneMayus=tieneNum=tieneSimb=false;
+    tieneMinus=tieneMayus=tieneNum=tieneSimb=false;
     for ( let i=0; i<password.length; i++ ) {
         if ( minus.includes(password.charAt(i)) ) {
             tieneMinus = true;
