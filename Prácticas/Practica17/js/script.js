@@ -8,7 +8,7 @@ for ( let i = 0; i<10; i++ ) {
 }
 
 function imprimirTablero() {
-    document.write("<table border='1'>");
+    document.write("<table>");
     for ( let i in tablero ) {
         document.write("<tr>");
         for ( let j in tablero[i] ) {
@@ -63,6 +63,7 @@ function colocarBarco(tamaño) {
     console.log(`Posicion: ${posicion} Orientación: ${orientacion}`);
     fil = Math.floor(posicion/10);
     col = posicion%10;
+
     for ( let i = -1; i < tamaño+1; i++ ) {
         for ( let j = -1; j < 2; j++ ) {
             if ( orientacion == 0 ) {
@@ -77,6 +78,7 @@ function colocarBarco(tamaño) {
         }
     }
 }
+
 colocarBarco(5);
 colocarBarco(4);
 colocarBarco(4);
