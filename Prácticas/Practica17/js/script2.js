@@ -77,10 +77,10 @@ function chocaExtremos(posicion, orientacion, tamanio) {
             }
         } 
 
-        if ( col+tamanio+1 <= 9 ) {
-            if ( ( fil-1 >= 0 && tablero[fil-1][col+tamanio+1] ) ||
-                 ( tablero[fil][col+tamanio+1] ) ||
-                 ( fil+1 <= 9 && tablero[fil+1][col+tamanio+1]) ) {
+        if ( col+tamanio <= 9 ) {
+            if ( ( fil-1 >= 0 && tablero[fil-1][col+tamanio] ) ||
+                 ( tablero[fil][col+tamanio] ) ||
+                 ( fil+1 <= 9 && tablero[fil+1][col+tamanio]) ) {
                 return true;
             }
         }
@@ -95,10 +95,10 @@ function chocaExtremos(posicion, orientacion, tamanio) {
             }
         } 
 
-        if ( fil+tamanio+1 <= 9 ) {
-            if ( ( col-1 >= 0 && tablero[fil+tamanio+1][col-1] ) ||
-                 ( tablero[fil+tamanio+1][col] ) ||
-                 ( col+1 <= 9 && tablero[fil+tamanio+1][col+1]) ) {
+        if ( fil+tamanio <= 9 ) {
+            if ( ( col-1 >= 0 && tablero[fil+tamanio][col-1] ) ||
+                 ( tablero[fil+tamanio][col] ) ||
+                 ( col+1 <= 9 && tablero[fil+tamanio][col+1]) ) {
                 return true;
             }
         } 
@@ -107,8 +107,15 @@ function chocaExtremos(posicion, orientacion, tamanio) {
     return false;
 }
 
+function casillaOcupada(posicion) {
+    fil = Math.floor(posicion/10);
+    col = posicion%10;
+
+    return tablero[fil][col];
+}
+
 function choca(posicion, orientacion, tamanio) {
-    return chocaLados(posicion, orientacion, tamanio) || chocaExtremos(posicion, orientacion, tamanio);
+    return chocaLados(posicion, orientacion, tamanio) || chocaExtremos(posicion, orientacion, tamanio) || casillaOcupada(posicion);
 }
 
 function colocarBarco(tamanio) {
@@ -134,8 +141,8 @@ colocarBarco(4);
 colocarBarco(4);
 colocarBarco(3);
 colocarBarco(3);
-//colocarBarco(2);
-//colocarBarco(2);
+colocarBarco(2);
+colocarBarco(2);
 //colocarBarco(1);
 //colocarBarco(1);
 imprimirTablero();
