@@ -6,7 +6,7 @@ En esta implementación represento el tablero como un vector bidimensional donde
 De esta forma la comprobación que hay que realizar para saber si un barco se puede colocar es muy sencilla, ya
 que solo hay que comprobar que no se salga del tablero, y que las casillas que va a ocupar tengan el valor 0.
 La parte más difícil es colocar el barco, ya que hay que detectar las casillas adyacentes a un barco para 
-señalarla con el valor 1.
+señalarlas con el valor 1.
 */
 
 //Definimos e inicializamos a 0 el array que representa el tablero
@@ -28,7 +28,7 @@ function imprimirTablero() {
             if ( tablero[i][j] == 0 ) {
                 document.write(`<td></td>`);
             } else if ( tablero[i][j] == 1 ) {
-                document.write(`<td class="zonaSegura"></td>`);
+                document.write(`<td class="casillaAdyacente"></td>`);
             } else {
                 document.write(`<td class="barco"></td>`);
             }
@@ -88,20 +88,20 @@ function choca(posicion, horizontal, tamanio) {
     return false;
 }
 
-//Función de coloca en el tablero un barco de cierto tamaño
+//Función de coloca en el tablero un barco de tamaño tamanio
 function colocarBarco(tamanio) {
-    //Calculamos de forma aleatorio la posición y la orientación. Mientras se salga del tablero o
+    //Calculamos de forma aleatoria la posición y la orientación. Mientras se salga del tablero o
     //choque con otro barco, seguiremos generando posiciones y orientaciones nuevas
     do {
         posicion = parseInt(Math.random()*100);
         horizontal = (parseInt(Math.random()*2) == 0)? true : false;
     } while ( sale(posicion, horizontal, tamanio) || choca(posicion, horizontal, tamanio) );
 
-    console.log(`Posicion: ${posicion} Horizontal: ${horizontal}`);
-
     //Dividimos la posición en el número de fila y de columna que corresponda
     fil = Math.floor(posicion/10);
     col = posicion%10;
+
+    console.log(`Posicion: (${fil},${col}) Horizontal: ${horizontal} Tamaño: ${tamanio}`);
 
     //Ahora que tenemos la posición, la orientación y el tamaño, podemos colocarlo en el tablero
 
