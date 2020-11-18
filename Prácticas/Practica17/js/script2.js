@@ -36,6 +36,10 @@ function sale(posicion, orientacion, tamaño) {
     return false;
 }
 
+/*
+    
+
+*/
 function chocaLados(posicion, orientacion, tamanio) {
     fil = Math.floor(posicion/10);
     col = posicion%10;
