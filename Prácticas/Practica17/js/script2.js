@@ -1,3 +1,10 @@
+/*
+Esta es otra implementación, en la que en el tablero solo tengo dos valores
+false   -> casilla vacía
+true    -> casilla ocupada por un barco
+En ésta lo difícil es comprobar que un barco choque con otro
+La veo más difícil de entender que la implementada en script.js
+*/
 const tablero = new Array(10);
 
 for ( let i = 0; i<10; i++ ) {
@@ -36,10 +43,6 @@ function sale(posicion, orientacion, tamaño) {
     return false;
 }
 
-/*
-    
-
-*/
 function chocaLados(posicion, orientacion, tamanio) {
     fil = Math.floor(posicion/10);
     col = posicion%10;
