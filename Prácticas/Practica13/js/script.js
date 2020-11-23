@@ -23,7 +23,7 @@ if ( clave == null || texto == null ) {
     let cifrado = "";
     //Recorremos el texto carácter a carácter y vamos sumando la clave
     for ( let i=0; i<texto.length; i++ ) {
-        cifrado += String.fromCharCode(texto.charCodeAt(i)+parseInt(clave[i%clave.length]));
+        cifrado += String.fromCharCode(texto.charCodeAt(i) + parseInt(clave[i%clave.length]));
     }
 
     //Mostramos el texto cifrado

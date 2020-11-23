@@ -46,19 +46,19 @@ function validarString(str) {
     const NUMS = "0123456789";
 
     for ( let i=0; i<str.length; i++ ) {
-        if ( NUMS.includes(str) ) {
+        if ( NUMS.includes(str.charAt(i)) ) {
             return false;
         }
     }
     return true;
 }
 
-//Función que recibe un string ya preparado y devuelve true si es un palíndromo, o flase en 
+//Función que recibe un string ya preparado y devuelve true si es un palíndromo, o false en 
 //caso contrario
 function esPalindromo(str){
+    //i irá desde el principio del string hasta la mitad, y j desde el final a la mitad
     for ( let i=0, j=str.length-1; i<=j; i++, j-- ) {
-        //console.log(str[i]+" "+str[j]);
-        if ( str[i] != str[j] ) {
+        if ( str.charAt(i) != str.charAt(j) ) {
             return false;
         }
     }
@@ -67,6 +67,8 @@ function esPalindromo(str){
 
 //Variable booleana donde guardaremos la información de que el usuario haya cancelado un cuadro
 let cancelar = false;
+//Variable booleanas donde indicaremos si la frase ha pasado la validación (no tiene números)
+let valida = true;
 
 //Pedimos frases hasta que sea válida (no contenga números) 
 do {
@@ -78,13 +80,18 @@ do {
         alert("Has cancelado la ejecución");
         break;
     }
-} while ( !validarString(frase) && alert("La frase no puede contener números") );
+    
+    if ( !(validada = validarString(frase)) ) {
+        alert("La frase no puede contener números")
+    }
+
+} while ( !validada );
 
 //Si el programa no se ha cancelado, comprobamos si la frase es un palíndromo o no
 if ( !cancelar ) {
     if ( esPalindromo(prepararString(frase)) ) {
-        alert(`La frase introducida es un palíndromo` );
+        alert(`La frase introducida es un palíndromo`);
     } else {
-        alert(`La frase introducida no es un palíndromo` );
+        alert(`La frase introducida no es un palíndromo`);
     }
 }

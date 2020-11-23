@@ -1,7 +1,7 @@
 //Pedimos el texto a cifrar
 let texto = prompt("Introduce el texto a cifrar");
 while ( texto == "" ) {
-    alert("El texto no puede estar vacío")
+    alert("El texto no puede estar vacío");
     texto = prompt("Introduce el texto a cifrar");
 }
 
@@ -24,7 +24,6 @@ if ( texto == null || clave == null ) {
     //Recorremos el texto carácter a carácter y vamos sumando la clave
     for ( let i=0; i<texto.length; i++ ) {
         cifrado += String.fromCharCode(texto.charCodeAt(i)+clave);
-        //console.log(texto.charCodeAt(i)+" "+(texto.charCodeAt(i)+clave)+" "+String.fromCharCode(texto.charCodeAt(i)+clave));
     }
 
     //Mostramos el texto cifrado
