@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {height:100%; margin:0; }
+    </style>
+    <title>Práctica 20 - EVA1</title>
+</head>
+<body>
+    <div id="fondo"></div>
+    <script>
+        function colorAleatorioFondo() {
+            let r = parseInt(Math.random()*256);
+            let g = parseInt(Math.random()*256);
+            let b = parseInt(Math.random()*256);
+
+            document.getElementById("fondo").style.backgroundColor=`rgb(${r},${g},${b})`;
+        }
+
+        setInterval(colorAleatorioFondo,2000);
+    </script>
+</body>
+</html>
