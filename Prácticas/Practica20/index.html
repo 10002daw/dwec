@@ -11,7 +11,7 @@
 <body>
     <div id="fondo"></div>
     <script>
-        function colorAleatorioFondo() {
+        function colorFondoAleatorio() {
             let r = parseInt(Math.random()*256);
             let g = parseInt(Math.random()*256);
             let b = parseInt(Math.random()*256);
@@ -19,7 +19,8 @@
             document.getElementById("fondo").style.backgroundColor=`rgb(${r},${g},${b})`;
         }
 
-        setInterval(colorAleatorioFondo,2000);
+        colorFondoAleatorio();
+        setInterval(colorFondoAleatorio,2000);
     </script>
 </body>
 </html>

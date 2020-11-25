@@ -23,4 +23,5 @@ crearTabla(20,10); //Crea una tabla de 20 filas, 10 columnas y color negro
 document.write("<br>");
 for ( let i=0; i < 10; i++) {
     crearTabla(5,4,"green"); //Crea una tabla de 5 filas, 4 columnas y color verde
+    document.write("<br>");
 }
