@@ -1,3 +1,11 @@
+/*
+El tablero será representado como un array bidimensional con valores enteros.
+Cada valor significa lo siguiente:
+-1  -> Posición de una mina
+0-8 -> Número de minas adyacentes
+*/
+
+//Función que inicializa un tablero de filas x columnas vacío
 function crearTablero(filas, columnas) {
     let tablero = new Array(filas);
 
@@ -11,7 +19,7 @@ function crearTablero(filas, columnas) {
     return tablero;
 }
 
-
+//Función que recibe un tablero y coloca en él un número numMinas de minas
 function insertaMinas(tablero, numMinas) {
     let filas = tablero.length;
     let columnas = tablero[0].length;
@@ -29,13 +37,14 @@ function insertaMinas(tablero, numMinas) {
     }
 }
 
+//Función que recibe el tablero y una posición y devuelve el número de minas adyacentes 
 function nMinasPos(tablero, fil, col) {
     let nFilas = tablero.length;
     let nColumnas = tablero[0].length;
     
     numMinas = 0;
 
-    if ( fil > 0 ) {
+    if ( fil > 0 ) { //Comprobamos las 3 posiciones sobre la casilla
         if ( tablero[fil-1][col] == -1 ) {
             numMinas++;
         }
@@ -51,7 +60,7 @@ function nMinasPos(tablero, fil, col) {
         }
     }
 
-    if ( fil < nFilas-1 ) {
+    if ( fil < nFilas-1 ) { //Comprobamos las 3 casillas debajo de la posición
         if ( tablero[fil+1][col] == -1 ) {
             numMinas++;
         }
@@ -67,13 +76,13 @@ function nMinasPos(tablero, fil, col) {
         }
     }
 
-    if ( col > 0 ) {
+    if ( col > 0 ) { //Comprobamos la casilla que se encuentra justo a la izquierda de la posición
         if ( tablero[fil][col-1] == -1 ) {
             numMinas++;
         }
     }
 
-    if ( col < nColumnas-1 ) {
+    if ( col < nColumnas-1 ) { //Comprobamos la casilla que se encuentra justo a la derecha de la posición
         if ( tablero[fil][col+1] == -1) {
             numMinas++;
         }
