@@ -46,51 +46,53 @@ function nMinasPos(tablero, fil, col) {
 
     if ( fil > 0 ) { //Comprobamos las 3 posiciones sobre la casilla
         if ( tablero[fil-1][col] == -1 ) {
-            numMinas++;
+            numMinas++; //Superior
         }
         if ( col > 0 ) {
             if ( tablero[fil-1][col-1] == -1 ) {
-                numMinas++;
+                numMinas++; //Superior izquierda
             }
         }
         if ( col < nColumnas-1 ) {
             if ( tablero[fil-1][col+1] == -1 ) {
-                numMinas++;
+                numMinas++; //Superior derecha
             }
         }
     }
 
     if ( fil < nFilas-1 ) { //Comprobamos las 3 casillas debajo de la posición
         if ( tablero[fil+1][col] == -1 ) {
-            numMinas++;
+            numMinas++; //Inferior
         }
         if ( col > 0 ) {
             if ( tablero[fil+1][col-1] == -1 ) {
-                numMinas++;
+                numMinas++; //Inferior izquierda
             }
         }
         if ( col < nColumnas-1 ) {
             if ( tablero[fil+1][col+1] == -1 ) {
-                numMinas++;
+                numMinas++; //Inferior derecha
             }
         }
     }
 
     if ( col > 0 ) { //Comprobamos la casilla que se encuentra justo a la izquierda de la posición
         if ( tablero[fil][col-1] == -1 ) {
-            numMinas++;
+            numMinas++; //Izquierda
         }
     }
 
     if ( col < nColumnas-1 ) { //Comprobamos la casilla que se encuentra justo a la derecha de la posición
         if ( tablero[fil][col+1] == -1) {
-            numMinas++;
+            numMinas++; //Derecha
         }
     }
     
     return numMinas;
 }
 
+//Función que recorre al completo el tablero que se le pasa como parámetro y coloca en cada casilla un 
+//número que representa el número de minas que tiene alrededor
 function minasCerca(tablero) {
     let nFilas = tablero.length;
     let nColumnas = tablero[0].length;
@@ -104,6 +106,7 @@ function minasCerca(tablero) {
     }
 }
 
+//Función que recibe un tablero y lo muestra en formato tabla
 function dibujaTablero(tablero) {
     let nFilas = tablero.length;
     let nColumnas = tablero[0].length;
@@ -128,8 +131,23 @@ function dibujaTablero(tablero) {
     document.write("</table>");
 }
 
-const tablero = crearTablero(16,16);
-insertaMinas(tablero, 40);
-minasCerca(tablero);
-dibujaTablero(tablero);
-console.log(tablero);
+let filas, columnas;
+let minas;
+
+do {
+    filas = prompt("Introduce número de filas (mínimo 2)");
+} while ( isNaN(filas) || filas < 2 );
+
+do {
+    columnas = prompt("Introduce número de columnas (mínimo 2)");
+} while ( isNaN(columnas) || columnas < 2 );
+
+do {
+    minas = prompt(`Introduce número de minas (máximo ${filas*columnas-1})`);
+} while ( isNaN(minas) || minas < 1 || minas > filas*columnas-1 );
+
+const tablero = crearTablero(filas,columnas); //Creamos el tablero con los datos que ha introducido el usuario
+insertaMinas(tablero, minas); //Colocamos las minas aleatoriamente
+minasCerca(tablero);//Marcamos en cada casilla el número de minas que hay alrededor
+dibujaTablero(tablero);//Dibujamos el tablero
+//console.log(tablero);
