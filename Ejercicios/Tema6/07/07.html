@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7 - Hora, día de la semana, día del mes, mes, año, todo</title>
+</head>
+<body>
+    <button onclick="mostrarHora()">Hora</button>
+    <button onclick="mostrarDiaSemana()">Día de la semana</button>
+    <button onclick="mostrarDiaMes()">Día del mes</button>
+    <button onclick="mostrarMes()">Mes</button>
+    <button onclick="mostrarAnio()">Año</button>
+    <button onclick="mostrarTodo()">Todo</button>
+    <p id="parrafo"></p>
+
+    <script>
+        function mostrarHora() {
+            fecha = new Date();
+            document.getElementById("parrafo").innerHTML = fecha.toLocaleTimeString();
+        }
+
+        function mostrarDiaSemana() {
+            fecha = new Date();
+            document.getElementById("parrafo").innerHTML = fecha.getDay();
+        }
+
+        function mostrarDiaMes() {
+            fecha = new Date();
+            document.getElementById("parrafo").innerHTML = fecha.getDate();
+        }
+
+        function mostrarMes() {
+            fecha = new Date();
+            document.getElementById("parrafo").innerHTML = fecha.getMonth();
+        }
+
+        function mostrarAnio() {
+            fecha = new Date();
+            document.getElementById("parrafo").innerHTML = fecha.getFullYear();
+        }
+
+        function mostrarTodo() {
+            fecha = new Date();
+            document.getElementById("parrafo").innerHTML = fecha.toLocaleString();
+        }
+    </script>
+</body>
+</html>

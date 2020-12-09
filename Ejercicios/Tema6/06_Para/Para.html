@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6 - ¡Para!</title>
+</head>
+<body>
+    <p id="reloj"></p>
+    <button onclick="queTePares()">¡Para!</button>
+    <script>
+        let reloj = setInterval(
+            function() {
+                let fecha = new Date();
+                document.getElementById("reloj").innerHTML = fecha.toLocaleTimeString();
+            },
+            1000
+        )
+
+        function queTePares() {
+            clearInterval(reloj);
+        }
+    </script>
+</body>
+</html>
