@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let ejercicio10= /^(([0-4][0-9])|(5[0-2]))[0-9]{3}$/;
+        let regexDni = /^[\dKLXYZ][\d]{7}[A-Z]$/;
+        let dni = prompt("Escribe un DNI válido");
+        if ( regexDni.test(dni) ) {
+            alert("DNI correcto");
+        } else {
+            alert("DNI incorrecto");
+        }
+    </script>
+</body>
+</html>
