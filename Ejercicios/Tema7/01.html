@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="parrafo"></p>
+
+    <script>
+        parrafo = document.getElementById("parrafo");
+
+        parrafo.innerHTML += "Cookies: " + navigator.cookieEnabled + "<br>";
+        parrafo.innerHTML += "Java: " + navigator.javaEnabled() + "<br>";
+        parrafo.innerHTML += "Idioma: " + navigator.language + "<br>";
+        parrafo.innerHTML += "Online: " + navigator.onLine + "<br>";
+        parrafo.innerHTML += "Gecko: " + navigator.userAgent.includes("Gecko") + "<br>";
+    </script>
+</body>
+</html>
