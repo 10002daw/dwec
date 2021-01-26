@@ -21,3 +21,5 @@ let passwd = pedirDato(
     regex_passwd);
 
 document.write("<h1>Datos introducidos correctamente</h1>");
+document.write(`<p>Nombre de usuario: ${nombre}</p>`);
+document.write(`<p>Contraseña: ${passwd}</p>`);
