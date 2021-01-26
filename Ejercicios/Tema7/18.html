@@ -13,8 +13,8 @@
     <script>
         let input = document.getElementById("edad");
         let atributos = input.attributes;
-        for ( [type] ) {
-
+        for ( const i in atributos ) {
+            document.write(`El atributo: <em>${atributos[i].name}</em> tiene como valor: <em>${atributos[i].value}</em><br>`);
         }
     </script>
 </body>

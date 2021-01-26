@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 7 - Ejercicio 19</title>
+</head>
+<body>
+    <ul>
+        <li class="verdura">Lechuga</li>
+        <li class="verdura">Tomates</li>
+        <li class="carne">Pollo</li>
+        <li class="verdura">Remolacha</li>
+        <li class="carne">Ternera</li>
+        <li class="legumbre">Garbanzos</li>
+        <li class="legumbre">Lentejas</li>
+        <li class="carne">Cerdo</li>
+        <li class="verdura">Berenjena</li>
+        <li class="legumbre">Habas</li>
+    </ul>
+
+    <script>
+        let listItems = document.getElementsByTagName("li");
+        for ( const i in listItems ) {
+            if ( listItems[i].classList.contains("verdura") ) {
+                listItems[i].style.backgroundColor="palegreen";
+            } else if ( listItems[i].classList.contains("carne") ) {
+                listItems[i].style.backgroundColor="indianred";
+            } else if ( listItems[i].classList.contains("legumbre") ) {
+                listItems[i].style.backgroundColor="thistle";
+            }
+
+            if ( listItems[i].innerHTML=="Remolacha" || listItems[i].innerHTML=="Tomates" ) {
+                listItems[i].style.fontWeight="bold";
+            }
+        }
+    </script>
+</body>
+</html>
