@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 9 - EVA2</title>
+    <style>
+        #capa {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="capa">
+        Pulsa Alt+F12 para obtener una imagen de fondo
+    </div>
+    <script>
+        //Evento que se activa cuando se suelta una tecla
+        document.addEventListener("keyup", (ev) => {
+            if (ev.altKey && ev.key=="F12") { //Si se está pulsando la tecla Alt mientras se suelta F12, cambia el fondo del body
+                document.body.style.backgroundImage = "url('https://source.unsplash.com/random')";
+            }
+        }); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 10 - EVA2</title>
+    <style>
+        #capa {
+            width: 500px;
+            height: 500px;
+            border: solid 1px black;
+        }
+    </style>
+</head>
+<body>
+    <div id="capa">
+    </div>
+    <script>
+        capa = document.getElementById("capa");
+
+        //Evento que detecta si el ratón ha entrado en la capa y la colorea de verde
+        capa.addEventListener("mouseover", (ev) => {
+            capa.style.backgroundColor = "green";
+        }); 
+
+        //Evento que detecta si el ratón ha salido de la capa y la vuelve a poner blanca
+        capa.addEventListener("mouseout", (ev) => {
+            capa.style.backgroundColor = "white";
+        }); 
+
+        //Evento que se activa cuando se pulsa un botón del ratón dentro de la capa 
+        //y la colorea dependiendo del botón pulsado
+        capa.addEventListener("mousedown", (ev) => {
+            if ( ev.button == 0 ) { 
+                capa.style.backgroundColor = "red";
+            } else if ( ev.button == 2 ) {
+                capa.style.backgroundColor = "blue";
+            }
+        }); 
+
+        //Evento que se activa cuando un botón del ratón se ha soltado en cualquier
+        //parte de la página y la vuelve a poner blanca
+        document.addEventListener("mouseup", (ev) => {
+            capa.style.backgroundColor = "white";
+        });
+
+        //Evento que se activa cuando se pide el menú de contexto, y evita que se muestre
+        document.addEventListener("contextmenu", (ev) => {
+            ev.preventDefault();
+        });
+
+    </script>
+</body>
+</html>
