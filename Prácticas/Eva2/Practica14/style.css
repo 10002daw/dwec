@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    padding: 20px;
+}
+
+.capa {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+    float: left;
+    padding: 20px;
+    font-weight: bold;
+}
+
+#origen {
+    background-color: yellow;
+}
+
+#destino {
+    background-color: white;
+    margin-left: 300px;
+}

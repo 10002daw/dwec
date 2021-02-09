@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+}
+#capa {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+#cargando {
+    color: white;
+}
+img {
+    transition: 2s;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+.transition {
+    transform: scaleY(1);
+}
