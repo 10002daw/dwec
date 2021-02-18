@@ -3,26 +3,38 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>NIF aleatorio</title>
+    <title>Fetch JSON</title>
 </head>
 
 <body>
     <h1>Presentando datos en formato JSON</h1>
-    <p id="miID"></p>
+    <div id="posts"></div>
     <script>
-        var parrafo = document.getElementById("miID"); fetch("http://jsonplaceholder.typicode.com/posts/1").then(respuesta => {
-            if (respuesta.ok) { //Nos aseguramos que no haya errores  return respuesta.json(); //Devuelve un objeto en formato JSON  } else { 
+        var posts = document.getElementById("posts"); 
+        fetch("http://jsonplaceholder.typicode.com/posts?userId=1")
+        .then(respuesta => {
+            if (respuesta.ok) {
+                return respuesta.json();
+            } else {
                 throw new Error("Los datos no llegaron bien");
             }
         })
-            .then(miJSON => { //Recoge nuestra respuesta JSON  console.log(miJSON); //Sacamos el objeto por consola  //Volcamos los datos 
+        .then(miJSON => {
+            console.log(miJSON);
+            for ( let post of miJSON ) {
+                console.log(post);
+                let parrafo = document.createElement("p");
                 parrafo.innerHTML = `  
-<strong>userId</strong>: ${miJSON.userId} <br>   <strong>ID</strong>: ${miJSON.id} <br> 
-<strong>title</strong>: ${miJSON.title} <br>  <strong>body</strong>: ${miJSON.body}`;
-            })
-            .catch(error => {
-                parrafo.textContent = "Error: " + error;
-            });  
+<strong>userId</strong>: ${post.userId} <br>
+<strong>ID</strong>: ${post.id} <br> 
+<strong>title</strong>: ${post.title} <br> 
+<strong>body</strong>: ${post.body}`;
+                posts.appendChild(parrafo);
+            }
+        })
+        .catch(error => {
+            posts.textContent = "Error: " + error;
+        });  
     </script>
 </body>
 
