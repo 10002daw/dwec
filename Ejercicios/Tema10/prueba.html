@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Obtener datos externos</title>
+</head>
+
+<body>
+    <p></p>
+    <script>
+        let p = document.querySelector("p");
+        let form = new FormData();
+        form.append("postId", "12");
+        form.append("name", "Nathan");
+        form.append("name", "Nathan2")
+        form.append("email", "Nathan.explosion@dethmail.com");
+        form.append("body", "Murmaider, murmaider");
+        console.log(form.has("body")); //Escribe true
+        console.log(form.get("name"));
+        console.log(form.getAll("name"));
+        fetch("http://jsonplaceholder.typicode.com/comments", {
+            method: "post",
+            body: form
+        })
+            .then(resultado => {
+                return (resultado.json());
+            })
+            .then(datos => {
+                console.log(datos);
+            })
+            .catch((error) => {
+                p.textContent = "Error: " + error;
+            });
+    </script>
+</body>
+
+</html>
